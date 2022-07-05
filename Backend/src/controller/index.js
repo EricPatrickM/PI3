@@ -11,6 +11,10 @@ const io = new Server(httpServer, { /* options */ });
 
 io.on('connection', (socket) => {
     console.log(socket.id)
+    socket.on('Jogado', data => {
+        console.log(data)
+    })
 })
+
 
 httpServer.listen(3000, () => console.log('RODANDO'));
