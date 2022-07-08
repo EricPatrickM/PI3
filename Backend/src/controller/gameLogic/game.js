@@ -5,6 +5,10 @@
 4 - Paus
 */
 
+class Player{
+    deck=[]
+}
+
 class DeckOfCard{
     cards = []
     constructor(){//criar baralho
@@ -19,13 +23,41 @@ class DeckOfCard{
 }
 
 class Game{
-    deck = new DeckOfCard()
+    deckOfCard = new DeckOfCard()
+    player1 = new Player()
     
-    dealCards(){ //sortear cartas
-        sorteada = Math.random(0, baralho.cartas.length)
+    sorteada = 0 
+    dealAllCards(amount){
+        
 
     }
+    dealCards(){//sortear cartas
+        this.sorteada = Math.floor(Math.random() * this.deckOfCard.cards.length-1);
+        this.player.deck.push(this.deckOfCard.cards[this.sorteada])
+        this.deckOfCard.cards.splice(this.sorteada,1)
+    }
+    defineWildCard(){//definir o coringa
+        if()
+    }
+    guessCard(){//Definir quantidade de rodadas
+
+    }
+    playCards(){//realizou a jogada
+
+    }
+    roundFinished(){
+
+    }
+    tieCard(){//Empachar as cartas
+
+    }
+    checkRoundsWon(){//Rodadas ganhas no final
+        loseLifes(){//Perdeu vida
+    
+        }
+    }
+
 }
 
-teste = new Jogo()
-console.log(teste.teste())
+teste = new Game()
+console.log(teste.dealCards())
