@@ -24,27 +24,52 @@ class DeckOfCard{
 
 class Game{
     deckOfCard = new DeckOfCard()
-    player1 = new Player()
+    players = []
+    amountPlayers = 5
+    sorteada = []
+    currentRound = 4
     
-    sorteada = 0 
-    dealAllCards(amount){
-        
-
+    constructor(amount){
+        this.amountPlayers = amount
+        for(let i=0;i < amount;i++){
+            this.players[i] = new Player
+        }
     }
-    dealCards(){//sortear cartas
-        this.sorteada = Math.floor(Math.random() * this.deckOfCard.cards.length-1);
-        this.player.deck.push(this.deckOfCard.cards[this.sorteada])
+
+    dealAllCards(){
+        if(this.currentRound * this.amountPlayers > 40){
+            this.currentRound=1
+        }
+        for(let i=0;i < this.amountPlayers;i++){
+            this.dealCards(this.currentRound, i)
+        }
+        for(let i=0;i < this.amountPlayers;i++){
+            console.log(this.players[i].deck)
+        }
+    }
+
+    dealCards(amount, playerPosition){//sortear cartas
+        this.sorteada = []
+        for(let i=0;i < amount;i++){
+            this.sorteada.push(this.deckOfCard.cards[Math.floor(Math.random() * this.deckOfCard.cards.length-1)]);
+        }
+        console.log(this.sorteada)
+        this.players[playerPosition].deck = this.sorteada
         this.deckOfCard.cards.splice(this.sorteada,1)
     }
+
     defineWildCard(){//definir o coringa
-        if()
+
     }
+
     guessCard(){//Definir quantidade de rodadas
 
     }
+
     playCards(){//realizou a jogada
 
     }
+
     roundFinished(){
 
     }
@@ -52,12 +77,12 @@ class Game{
 
     }
     checkRoundsWon(){//Rodadas ganhas no final
-        loseLifes(){//Perdeu vida
+        /*loseLifes(){//Perdeu vida
     
-        }
+        }*/
     }
 
 }
 
-teste = new Game()
-console.log(teste.dealCards())
+teste = new Game(3)
+teste.dealAllCards()
