@@ -1,9 +1,12 @@
 export default class Player{
     public deck : any[] = []
-    public nome = null
-    public precisao = null
+    public name = null
+    public precision = null
+
+    public lifes :number = 5
+    public roundGuess : number = 0
     constructor(){//pegar os dados no banco
-        this.nome = null
-        this.precisao = null
+        this.name = null
+        this.precision = null
     }
 }
