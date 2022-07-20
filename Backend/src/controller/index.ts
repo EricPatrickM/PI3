@@ -2,15 +2,20 @@ import App from "./App";
 import http from "http"
 import { Server } from "socket.io";
 import path from "path";
+import Game from './gameLogic/game'
 
 let app : App = new App()
+
 app.server.get("/", (req,res) => {//tela inicial
+    const game : Game = new Game(5)
+    game.dealAllCards()
     res.send('teste')
 })
 
 app.server.get("/", (req,res) => {//pegar informacoes do jogador(estatisticas)
     res.send('teste')
 })
+
 
 
 /*
