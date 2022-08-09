@@ -1,11 +1,10 @@
 const socket = io()
 
-const username = "ola"
+//const urlSearch = new URLSearchParams(window.location.search)
+//const room = url.urlSearch.get("room")
+const room = "teste"
+const card = 4
 
-socket.emit('Jogado', {
-    username,
-})
-
-socket.on('verificandoVagas', {
-    
-})
+socket.emit("joinRoom", {
+    room,
+});

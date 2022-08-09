@@ -1,36 +1,4 @@
-import App from "./App"; 
-import http from "http"
-import { Server } from "socket.io";
-import path from "path";
-import Game from './gameLogic/game'
+import {serverHttp} from "./http"
+import "./webSocket"
 
-let app : App = new App()
-
-app.server.get("/", (req,res) => {//tela inicial
-    const game : Game = new Game(5)
-    game.dealAllCards()
-    res.send('teste')
-})
-
-app.server.get("/", (req,res) => {//pegar informacoes do jogador(estatisticas)
-    res.send('teste')
-})
-
-
-
-/*
-app.server.use(express.static(path.join(__dirname,'..','view')));
-
-const httpServer = http.createServer(app);
-const io = new Server(httpServer,{});
-
-io.on('connection', (socket) => {
-    console.log(socket.id)
-    socket.on('Jogado', data => {
-        console.log(data)
-    })
-})
-*/
-
-//httpServer.listen(3000, () => console.log('RODANDO'));
-app.server.listen(3000, () => console.log('RODANDO'));
+serverHttp.listen(3000, () =>{console.log('RODANDO')})
