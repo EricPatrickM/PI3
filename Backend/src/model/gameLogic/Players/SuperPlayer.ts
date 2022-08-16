@@ -11,6 +11,15 @@ export default class SuperPlayer{
 
 
     protected sessionID : string //session ID
+    constructor(){
+        this.deck = []
+        this.name='Eric'
+        this.precision=0
+        this.lifes = 5
+        this.roundGuess = 0
+        this.sessionID = "0"
+        this.winRate = 22
+    }
 
     private ResetAll(){
         this.deck = []
@@ -18,6 +27,10 @@ export default class SuperPlayer{
         this.precision=0
         this.lifes = 5
         this.roundGuess = 0
+    }
+
+    public PhaseFinished(){
+        this.roundDid += 1
     }
 
     public RoundFinished(){
@@ -39,5 +52,8 @@ export default class SuperPlayer{
     }
     public set RoundGuess(value : number){
         this.roundGuess = value
+    }
+    public get RoundGuess() : number{
+        return this.roundGuess
     }
 }

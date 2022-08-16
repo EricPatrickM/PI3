@@ -9,11 +9,11 @@ export default class PlayerCard{
         this.card = card
         this.player = player
     }
+    
     get Card() : Card{
         return this.card
     }
     get Player() : SuperPlayer{
         return this.player
     }
-    
 }

@@ -8,23 +8,24 @@
 import Card from "../Card/Card"
 
 export default class DeckOfCard{
-    public cards : Card[] = []
+    private cards : Card[] = []
     
     constructor(){
-        this.reset()
+
     }
 
-    reset(){ //criar/resetar baralho
+    public reset(){ //criar/resetar baralho
+        this.cards = []
         for(let i=1;i <= 13;i++){
             if(i <= 7 || i >= 11){
                 for(let j=1;j <= 4;j++){
-                    this.cards.push(new Card(i,j))
+                    this.cards.push(new Card(j,i))
                 }
             }
         }
     }
 
-    get Cards() : Card[]{
+    public get Cards() : Card[]{
         return this.cards
     }
 

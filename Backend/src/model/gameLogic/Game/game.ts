@@ -19,6 +19,7 @@ export default class Game{
 
     constructor(amount : number){
         this.amountPlayers = amount
+        this.table = new Table()
         for(let i=0;i < amount;i++){
             this.players.push(new Player('teste', 'teste'))
         }
@@ -26,19 +27,26 @@ export default class Game{
     }
 
 
-    start(){
+    private start(){
+        this.deckOfCard.reset()
         this.dealAllCards()
         this.defineWildCard()
 
         //define guess
-        this.guessCard(0, 0)
-        this.playCards(0, new Card(0, 0))
+        for(let i=0;i < this.amountPlayers;i++){
+            this.guessCard(i, 0)
+        }
 
+        for(let i=0;i < this.table.Round;i++){
+            for(let j=0;j < this.amountPlayers;j++){
+                this.playCards(j, new Card(1, j+1))
+            }
+            this.phaseFinished()
+        }
         this.roundFinished()
     }
 
     dealAllCards(){//sortear para todos e definir coringa
-        this.deckOfCard.reset()
         for(let i=0;i < this.amountPlayers;i++){
             this.dealCards(this.table.Round, i)
         }
@@ -48,7 +56,7 @@ export default class Game{
         let sorteada : Card[] = []
         let indice : number
         for(let i=0;i < amount;i++){
-            indice=Math.floor(Math.random() * this.deckOfCard.cards.length-1)
+            indice = Math.floor(Math.random() * this.deckOfCard.Cards.length)
             sorteada.push(this.deckOfCard.Cards[indice]);
             this.deckOfCard.removeCard(indice)
         }
@@ -57,9 +65,9 @@ export default class Game{
 
     defineWildCard(){//definir o coringa
         if(this.table.Round * this.amountPlayers == 40){
-            this.table.WildCard = new Card(-1, -1);
+            this.table.WildCard = new Card(3, 0);
         } else {
-            this.table.WildCard = this.deckOfCard.cards[Math.floor(Math.random() * this.deckOfCard.cards.length-1)];
+            this.table.WildCard = this.deckOfCard.Cards[Math.floor(Math.random() * this.deckOfCard.Cards.length-1)];
         }
     }
 
@@ -69,15 +77,15 @@ export default class Game{
 
     playCards(playerPosition : number, value : Card){//realizou a jogada
         this.players[playerPosition].Deck.forEach((x)=>{
-            if(x == value){
+            //if(x.Number == value.Number && x.Suite == value.Suite){
                 this.table.AddCardInGame(this.players[playerPosition], value)
-            }
+            //}
         })
-        this.tieCard()
     }
 
     phaseFinished(){//Quem ganhou a fase
-
+        let person : SuperPlayer = this.table.defineGreatestCard()
+        person.PhaseFinished()
     }
 
     roundFinished(){
@@ -85,26 +93,5 @@ export default class Game{
             this.players[x].RoundFinished()
         }
         this.table.NextRound()
-    }
-
-    tieCard(){//Empachar as cartas
-        for(let x=0;x > this.table.DeckInGame.length;x++){
-            for(let y=x;y > this.table.DeckInGame.length;y++){
-                if(this.table.DeckInGame[x] == this.table.DeckInGame[y]){
-                    this.table.DeckInGame.splice(x, 1)
-                    this.table.DeckInGame.splice(y-1, 1)
-                }
-            }
-        }
-    }
-
-    checkPhaseWon(){
-        let wildcard = this.table.WildCard
-        let deckInGame = this.table.DeckInGame
-
-    }
-
-    defineGreatestCard(){
-        
     }
 }
