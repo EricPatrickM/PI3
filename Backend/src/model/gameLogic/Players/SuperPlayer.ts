@@ -1,6 +1,6 @@
 import Card from "../Card/Card"
 
-export default class SuperPlayer{
+export default abstract class SuperPlayer{
     protected deck : Card[]
     protected name : string
     protected precision : number
@@ -8,7 +8,6 @@ export default class SuperPlayer{
     protected lifes :number = 5
     protected roundGuess : number = 0
     protected roundDid : number = 0
-
 
     protected sessionID : string //session ID
     constructor(){
@@ -28,6 +27,8 @@ export default class SuperPlayer{
         this.lifes = 5
         this.roundGuess = 0
     }
+
+    public abstract checkSpotEmpty() : boolean;
 
     public PhaseFinished(){
         this.roundDid += 1

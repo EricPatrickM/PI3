@@ -17,6 +17,10 @@ export default class Game{
     private table : Table
     private amountPlayers = 5
 
+    public getAllPlayers():SuperPlayer[]{
+        return this.players
+    }
+
     constructor(amount : number){
         this.amountPlayers = amount
         this.table = new Table()

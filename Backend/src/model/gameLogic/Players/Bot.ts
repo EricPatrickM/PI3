@@ -1,6 +1,10 @@
 import SuperPlayer from "./SuperPlayer"
 
 export default class Bot extends SuperPlayer{
+    public checkSpotEmpty(): boolean {
+        return true;
+    }
+    
     constructor(id : string){//pegar os dados no banco
         super()
         this.name  = "BOT"
