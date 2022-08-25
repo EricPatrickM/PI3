@@ -1,8 +1,8 @@
 import express from "express"
 let app = express.Router()
 
-app.get('/',(req, res)=>{
-    res.render('Index')
+app.get('/:id',(req, res)=>{
+    res.render('teste')
 })
 
 export default app
