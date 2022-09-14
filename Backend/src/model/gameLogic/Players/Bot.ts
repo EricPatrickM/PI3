@@ -5,7 +5,7 @@ export default class Bot extends SuperPlayer{
         return true;
     }
     
-    constructor(id : string){//pegar os dados no banco
+    constructor(){//pegar os dados no banco
         super()
         this.name  = "BOT"
         this.precision  = 0

@@ -2,18 +2,16 @@ import Card from "../Card/Card"
 import SuperPlayer from "./SuperPlayer"
 
 export default class Player extends SuperPlayer{
-    public checkSpotEmpty(): boolean {
-        return false;
+    public changePlayerType(): SuperPlayer {
+        
     }
+    private userId : string = "";
 
-    private userID : string
-    constructor(userID : string, sessionID : string){//pegar os dados no banco
-        super()
-        this.sessionID = sessionID//session ID
-        this.userID = userID
+constructor(socketId : string){//pegar os dados no banco
+    super()
+        this.socketId = socketId//session ID
         try{
             //pegar do banco
-            this.GetUserData(userID)
             this.deck = []
         }catch(e){
             this.name = ''
@@ -21,6 +19,9 @@ export default class Player extends SuperPlayer{
         }
     }
     
+    public checkSpotEmpty(): boolean {
+        return false;
+    }
     GetUserData(id:string){ // consultar no banco
         this.name='Eric'
         this.precision=0
