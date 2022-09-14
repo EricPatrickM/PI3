@@ -8,6 +8,8 @@ import SuperPlayer from '../Players/SuperPlayer'
 import DeckOfCard from '../Deck/DeckOfCard'
 import Table from '../Table/Table'
 import Player from '../Players/Player'
+import Bot from '../Players/Bot'
+
 import Card from '../Card/Card'
 
 
@@ -17,6 +19,10 @@ export default class Game{
     private table : Table
     private amountPlayers = 5
 
+    public insertNewPlayer(place : number, socketId:string){
+        this.players[place] = new Player("")
+    }
+
     public getAllPlayers():SuperPlayer[]{
         return this.players
     }
@@ -25,7 +31,7 @@ export default class Game{
         this.amountPlayers = amount
         this.table = new Table()
         for(let i=0;i < amount;i++){
-            this.players.push(new Player('teste', 'teste'))
+            this.players.push(new Bot())
         }
         this.start()
     }

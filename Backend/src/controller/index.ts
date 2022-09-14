@@ -1,7 +1,7 @@
 import {serverHttp} from "./http"
 import "./webSocket"
+import Room from "../model/gameLogic/Room"
 
-import Game from "../model/gameLogic/Game/game"
-const game = new Game(5)
+const game = new Room();
 
 serverHttp.listen(3000, () =>{console.log('RODANDO')})
