@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 
@@ -11,7 +12,7 @@ export class HomePage implements OnInit{
   nickname : string;
   email : string;
 
-  constructor(private alertController : AlertController) {}
+  constructor(private alertController : AlertController, private router : Router) {}
 
   ngOnInit(){
       this.nickname;
@@ -60,14 +61,14 @@ export class HomePage implements OnInit{
   }
   async presentAlertLogin() {
     const alert = await this.alertController.create({
-      header: 'Cadastrar',
+      header: 'Login',
       buttons: [
         {
           text: 'Cancelar',
           
         },
         {
-          text: 'Cadastrar',
+          text: 'Logar',
         },
       ],
       inputs: [     
@@ -95,5 +96,9 @@ export class HomePage implements OnInit{
       ],
     });
     await alert.present();
+  }
+
+  irLogin(){
+    this.router.navigate(["/login"]);
   }
 }
