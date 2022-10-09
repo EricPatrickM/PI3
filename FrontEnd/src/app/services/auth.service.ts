@@ -40,6 +40,10 @@ export class AuthService {
 		}
 	}
 
+	checkauth(){
+		return this.auth;
+	}
+
 	logout() {
 		return signOut(this.auth);
 	}

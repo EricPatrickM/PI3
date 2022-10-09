@@ -67,9 +67,10 @@ export class RegisterPage implements OnInit {
     await loading.dismiss();
 
     if (user) {
+      this.presentAlert('Cadastro', 'Cadastro Realizado com Sucesso!', 'Seja Bem vindo!');
 			this.router.navigateByUrl('/home', { replaceUrl: true });
 		} else {
-			this.presentAlert('Registration failed', 'Please try again!', 'oi');
+			this.presentAlert('Cadastro', 'Por Favor tente novamente!', '');
 		}
 
   }

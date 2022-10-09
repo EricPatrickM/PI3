@@ -14,7 +14,15 @@ export class LoginPage implements OnInit {
   isSubmitted : boolean;
   auth : AuthService;
 
-  constructor(private router : Router, private formBuilder: FormBuilder, private alertController : AlertController, private loadingCtrl : LoadingController) { }
+  constructor(private router : Router, 
+    private formBuilder: FormBuilder, 
+    private alertController : AlertController, 
+    private loadingCtrl : LoadingController,
+    private authService : AuthService) { }
+
+  public get nick() {
+    return this.formLogin.get('nick');
+  }
 
   ngOnInit() {
     this.formLogin = this.formBuilder.group({
@@ -31,8 +39,8 @@ export class LoginPage implements OnInit {
   submitForm(): boolean{
     this.isSubmitted = true;
     if(!this.formLogin.valid){
-      //this.presentAlert("Agenda", "Erro",
-       //"Todos os campos são Obrigatórios!");
+      this.presentAlert("Login", "Erro",
+       "Todos os campos são Obrigatórios!");
       return false;
     }else{
       console.log("1");
@@ -41,15 +49,18 @@ export class LoginPage implements OnInit {
   }
 
   async login(){
-    console.log("chegou aqui");
-     /*this.auth.login(this.formLogin.value).then(() => {
-      this.presentAlert("Alerta", "Cadastro", "Cadastro realizado com Sucesso");
-      this.router.navigate(["\home"]);
-    }).catch((error) => {
-      this.loadingCtrl.dismiss();
-      this.presentAlert("Alerta", "Erro", "Erro ao cadastrar");
-      console.log(error);
-    });
+    console.log("erro aqui 2");
+    const loading = await this.loadingCtrl.create()
+    await loading.present();
+
+    const user = await this.authService.login(this.formLogin.value);
+    await loading.dismiss();
+    if (user) {
+      this.presentAlert('Login', 'Login Realizado com Sucesso!', 'Seja Bem vindo!');
+			this.router.navigateByUrl('/home', { replaceUrl: true });
+		} else {
+			this.presentAlert('Login', 'Por Favor tente novamente!', '');
+		}
   }
 
   async presentAlert(header:string, subHeader:string,massage:string) {
@@ -58,6 +69,6 @@ export class LoginPage implements OnInit {
       subHeader: subHeader,
       message: massage,
       buttons: ['OK'],
-    });*/
+    });
   }
 }
