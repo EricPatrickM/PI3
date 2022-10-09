@@ -13,21 +13,18 @@
         </ion-item>
 
         <ion-item *ngIf="(((errorControl.email.touched)||(errorControl.email.dirty))&&errorControl.email.errors)">
-          <span *ngIf="errorControl.email.errors?.required">
+          <span *ngIf="errorControl.email.errors?.required || errorControl.email.error">
             Email é obrigatório!
-          </span>
-          <span *ngIf="errorControl.email.dirty">
-            Tipo de Email Invalido!
           </span>
         </ion-item>
 
         <ion-item>
-          <ion-input placeholder="Senha" formControlName="password">
+          <ion-input type="password" placeholder="Senha" formControlName="password">
           </ion-input>
         </ion-item>
 
-        <ion-item *ngIf="((errorControl.email.touched)||(errorControl.email.dirty))">
-          <span *ngIf="errorControl.email.errors?.required">
+        <ion-item *ngIf="(((errorControl.password.touched)||(errorControl.password.dirty))&&errorControl.password.errors)">
+          <span *ngIf="errorControl.password.errors?.required">
             Senha é obrigatório!
           </span>
         </ion-item>

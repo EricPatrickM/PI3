@@ -22,10 +22,7 @@
         </ion-input>
       </ion-item>
       <ion-item *ngIf="(((errorControl.email.touched)||(errorControl.email.dirty))&&errorControl.email.errors)">
-        <span *ngIf="errorControl.email.errors?.required">
-          Email é obrigatório!
-        </span>
-        <span *ngIf="errorControl.email.errors">
+        <span *ngIf="errorControl.email.errors?.required || errorControl.email.errors">
           Email invalido!
         </span>
       </ion-item>
@@ -38,6 +35,9 @@
       <ion-item *ngIf="(((errorControl.password.touched)||(errorControl.password.dirty))&&errorControl.password.errors)">
         <span *ngIf="errorControl.password.errors?.required">
           Senha é obrigatório!
+        </span>
+        <span *ngIf="errorControl.password.errors?.minlength">
+          Tamanho minimo 6!
         </span>
       </ion-item>
     </ion-list>
