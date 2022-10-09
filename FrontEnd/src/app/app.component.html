@@ -1,3 +1,29 @@
 <ion-app>
+  <ion-tab-bar>
+    <ion-row>
+      <ion-item>
+        <ion-button color="success">Salas</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button color="success" (click)="carregarRanking()">Ranking</ion-button>
+        
+      </ion-item>
+      <ion-item>
+        <ion-button color="success" (click)="sobreNos()">Sobre Nós</ion-button>
+        
+      </ion-item>
+      <ion-item>
+        <ion-button color="success" (click)="exibirRegras()">Regras</ion-button>
+      </ion-item>
+      <ion-item>
+        
+        <ion-button color="success" (click)="goToLogin()">Logar</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button color="success" (click)="goToRegister()">Cadastrar</ion-button>
+        
+      </ion-item>
+    </ion-row>
+  </ion-tab-bar>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

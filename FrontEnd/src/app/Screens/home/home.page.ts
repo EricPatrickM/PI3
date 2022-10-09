@@ -97,8 +97,13 @@ export class HomePage implements OnInit{
     });
     await alert.present();
   }
+  
 
-  irLogin(){
+  goToLogin(){
     this.router.navigate(["/login"]);
+  }
+
+  goToRegister(){
+    this.router.navigate(["/register"]);
   }
 }
