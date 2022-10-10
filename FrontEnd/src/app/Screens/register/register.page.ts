@@ -4,6 +4,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { AppComponent } from 'src/app/app.component';
+import { AppModule } from 'src/app/app.module';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -24,7 +26,8 @@ export class RegisterPage implements OnInit {
     private formBuilder : FormBuilder, 
     private loadingCtrl : LoadingController, 
     private alertController : AlertController,
-    private authService: AuthService,) { }
+    private authService: AuthService,
+    private comp : AppComponent) { }
 
   ngOnInit() {
     this.formRegister = this.formBuilder.group({
@@ -67,6 +70,7 @@ export class RegisterPage implements OnInit {
     await loading.dismiss();
 
     if (user) {
+      this.comp.isLogin(true);
       this.presentAlert('Cadastro', 'Cadastro Realizado com Sucesso!', 'Seja Bem vindo!');
 			this.router.navigateByUrl('/home', { replaceUrl: true });
 		} else {
