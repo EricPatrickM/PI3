@@ -17,7 +17,7 @@ export class AuthService {
 	async register({email, password, nick}) {
 		try {
 			const us = await createUserWithEmailAndPassword(this.auth, email, password);
-      this.database.collection('Users').doc(us.user.uid).set({
+      	this.database.collection('Users').doc(us.user.uid).set({
         nick : nick, 
         email : email, 
         password : password,
@@ -44,7 +44,16 @@ export class AuthService {
 		return this.auth;
 	}
 
+	recoverypassword({email}){
+		return this.recoverypassword(email);
+	}
+
 	logout() {
-		return signOut(this.auth);
+		if(signOut(this.auth)){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 }
