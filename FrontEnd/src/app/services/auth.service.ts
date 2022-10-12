@@ -4,9 +4,11 @@ import {
 	signInWithEmailAndPassword,
 	createUserWithEmailAndPassword,
 	signOut,
-  user
+  user,
+  updatePassword
 } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { updateEmail } from 'firebase/auth';
 
 @Injectable({
 	providedIn: 'root'
@@ -44,6 +46,13 @@ export class AuthService {
 		return this.auth;
 	}
 
+	updateProfile({ password, nick}){
+		updatePassword(this.auth.currentUser, password).then(()=>{
+			
+		}).catch((error) =>{
+			return false;
+		});
+	}
 	recoverypassword({email}){
 		return this.recoverypassword(email);
 	}
