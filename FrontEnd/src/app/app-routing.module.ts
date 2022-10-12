@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'rules',
     loadChildren: () => import('./Screens/rules/rules.module').then( m => m.RulesPageModule)
   },
+  {
+    path: 'edit',
+    loadChildren: () => import('./Screens/edit/edit.module').then( m => m.EditPageModule)
+  },
 
 ];
 
