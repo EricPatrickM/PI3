@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="success">Regras</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button slop="end" defaultHref="" (click)="dimiss()" icon="chevron-down-outline"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label color="success">Visão Geral do jogo</ion-label>
+    </ion-item-divider>
+  
+    <ion-item>
+      <ion-label class="ion-text-wrap"> Predict cheap é um jogo que pode ser jogado com 2 á 5 jogadores </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap"> Cada jogador receberá 5 vidas, sendo que quando chegar 
+        a 0 ele é automaticamente retirado da mesa de jogo.</ion-label>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label color="success">Quantidade de cartas</ion-label>
+    </ion-item-divider>
+  
+    <ion-item>
+      <ion-label class="ion-text-wrap" >O jogo começa com cada jogador com uma carta.</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap"> A cada rodada a quantidade de cartas que cada jogador recebe vai aumentando.</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap"> Por exemplo, na rodada 1, cada participante recebe 1 cartas. 
+        Já na rodada 2, 2 cartas, até distribuir todas as cartas do baralho para todos os jogadores.</ion-label>
+    </ion-item>
+  </ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider>
+    <ion-label color="success">Palpites</ion-label>
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap" >O objetivo do jogador é adivinhar quantas jogadas ele vai fazer na rodada. 
+      Caso ele erre seu palpite (exemplo: deu o palpite que iria fazer 1 jogada, mas fez 2) perderá vida.</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap"> Então, perde a diferença entre o número dito no palpite 
+      e o número de jogadas que realmente fez (no caso do exemplo, 1).</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap"> Se o jogador acreditar que sua carta da rodada é a maior que todas as outras, 
+      ele fará a rodada. Dessa forma, a respectiva rodada está ganha.</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap" >Mas, se ele não tiver a maior carta, 
+      precisa então adivinhar quantas rodadas serão necessárias.</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap"> O jogo começa com cada jogador com uma carta.</ion-label>
+  </ion-item>
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider>
+    <ion-label color="success">Ordem das cartas no jogo predict cheap</ion-label>
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap"> A ordem das cartas é igual à do Truco. A ordem menor para o 
+      maior é: 4, 5 ,6, 7, Q, J, K, A, 1, 2, 3. Porém cada rodada terá uma manilha, 
+      e a carta imediatamente maior que a manilha será a carta mais forte do jogo. 
+      Também há uma hierarquia entre os naipes do jogo: Ouro, Espadas, Copas e Paus.</ion-label>
+  </ion-item>
+</ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label color="success">Processo do Jogo predict cheap</ion-label>
+    </ion-item-divider>
+  
+    <ion-item>
+      <ion-label class="ion-text-wrap"> Uma pessoa vai embaralhar e entregar as cartas fazendo uma de vira.</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap"> Depois os palpites, onde cada jogador (com o conhecimento das cartas) 
+        tenta adivinhar quantas cartas vai fazer nessa rodada.</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap"> O jogador no sentido anti-horário vai começar a partida mandando 
+        uma carta à mesa, seguido do próximo ao lado direito dele na mesa, que faz o mesmo, 
+        e assim sucessivamente até o fim da rodada, que acaba no jogador que embaralhou.</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap"> Após todos jogarem as cartas, vê-se qual carta é a maior. 
+        Se empatar, o mesmo jogador que começou a jogada continuará dando início à nova rodada. 
+        Se alguma carta for ganhadora, o participante que a jogou começará a próxima rodada.</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap"> Ao final da rodada, quando todos os jogadores jogarem suas cartas, 
+        são atualizadas as suas vidas (diferença entre o palpite e a quantidade de jogadas feitas).</ion-label>
+    </ion-item>
+
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider>
+    <ion-label color="success">Vencedor</ion-label>
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap"> É o último jogador que sobreviver com vidas. </ion-label>
+  </ion-item>
+  
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider>
+    <ion-label color="success">Vencedor</ion-label>
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-label class="ion-text-wrap"> É o último jogador que sobreviver com vidas. </ion-label>
+  </ion-item>
+  
+</ion-item-group>
+
+</ion-content>

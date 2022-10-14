@@ -7,6 +7,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import { AppComponent } from 'src/app/app.component';
 import { AppModule } from 'src/app/app.module';
 import { AuthService } from 'src/app/services/auth.service';
+import { HomePage } from '../home/home.page';
 
 
 
@@ -19,6 +20,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterPage implements OnInit {
   formRegister : FormGroup;
   isSubmitted : boolean;
+  private comp : AppComponent;
 
 
   constructor(
@@ -27,7 +29,7 @@ export class RegisterPage implements OnInit {
     private loadingCtrl : LoadingController, 
     private alertController : AlertController,
     private authService: AuthService,
-    private comp : AppComponent) { }
+    ) { }
 
   ngOnInit() {
     this.formRegister = this.formBuilder.group({

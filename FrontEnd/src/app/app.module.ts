@@ -7,7 +7,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+
 import { AngularFireDatabaseModule }
 from '@angular/fire/compat/database';
 import { AngularFirestoreModule }
@@ -15,12 +15,16 @@ from '@angular/fire/compat/firestore';
 import { environment }
 from 'src/environments/environment.prod';
 import { AngularFireModule } from '@angular/fire/compat';
-import { RulesPageModule } from './Screens/rules/rules.module';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { AppRoutingModule } from './app.routing.module';
+import { LoginPage } from './Screens/login/login.page';
+import { RulesComponent } from './components/rules/rules.component';
+
  
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, RulesPageModule,
+  declarations: [AppComponent, AboutUsComponent, RulesComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
 		provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
 		provideAuth(() => getAuth()),
     AngularFireDatabaseModule,
