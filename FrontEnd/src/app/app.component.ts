@@ -2,8 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { modalController } from '@ionic/core';
+import { RuleTester } from 'eslint';
 import { User } from 'src/models/usuario';
-import { RulesPage } from './Screens/rules/rules.page';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { RulesComponent } from './components/rules/rules.component';
+
 import { AuthService } from './services/auth.service';
 
 
@@ -17,9 +20,10 @@ export class AppComponent {
   nameb2 : string = "Cadastro";
   altbotton : boolean = false;
   us : User;
+
   constructor(public modalCtrl: ModalController, private router : Router, private authService : AuthService) {}
 
-  goToLogin(){
+  async goToLogin(){
     this.router.navigate(["/login"]);
   }
 
@@ -27,8 +31,8 @@ export class AppComponent {
     this.router.navigate(["/register"]);
   }
   async goToRules(){
-    const modal = await modalController.create({
-      component : RulesPage,
+    const modal = await this.modalCtrl.create({
+      component : RulesComponent,
     });
     return await modal.present();
   }
@@ -67,4 +71,12 @@ export class AppComponent {
       this.goToRegister();
     }
   }
+  async sobreNos(){
+    const modal = await this.modalCtrl.create({
+      component : AboutUsComponent,
+    });
+    return await modal.present();
+  }
+
 }
+
