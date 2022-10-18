@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterPage implements OnInit {
   formRegister : FormGroup;
   isSubmitted : boolean;
-  comp : AppComponent;
+  
 
 
   constructor(
@@ -24,6 +24,7 @@ export class RegisterPage implements OnInit {
     private loadingCtrl : LoadingController, 
     private alertController : AlertController,
     private authService: AuthService,
+    private comp : AppComponent
     ) { }
 
   ngOnInit() {
@@ -67,8 +68,8 @@ export class RegisterPage implements OnInit {
     await loading.dismiss();
 
     if (user) {
-      this.comp.isLogin(true);
       this.presentAlert('Cadastro', 'Cadastro Realizado com Sucesso!', 'Seja Bem vindo!');
+      this.comp.isLogin(true);
 			this.router.navigateByUrl('/home', { replaceUrl: true });
 		}else{
       this.presentAlert('Cadastro', "Erro", "Não foi possível realizar cadastro, tente novamente!");

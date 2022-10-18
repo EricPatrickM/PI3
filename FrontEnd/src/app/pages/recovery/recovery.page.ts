@@ -50,7 +50,7 @@ export class RecoveryPage implements OnInit {
     if(check){
       this.presentAlert("Recuperação de senha", "Sucesso",
       "O email para recuperação foi enviado!");
-      this.router.navigateByUrl('/home', { replaceUrl: true });
+      this.router.navigateByUrl('/login', { replaceUrl: true });
     }else{
       this.presentAlert("Recuperação de senha", "Erro",
       "Erro ao recuperar senha");

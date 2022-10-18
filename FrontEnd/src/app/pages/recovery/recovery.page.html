@@ -13,8 +13,8 @@
       </ion-item>
 
       <ion-item *ngIf="(((errorControl.email.touched)||(errorControl.email.dirty))&&errorControl.email.errors)">
-        <span *ngIf="errorControl.email.errors?.required || errorControl.email.error">
-          Email é obrigatório!
+        <span *ngIf="errorControl.email.errors?.required || errorControl.email.errors">
+          Email invalido!
         </span>
       </ion-item>
     </ion-list>

@@ -21,10 +21,13 @@ import { RulesComponent } from './components/rules/rules.component';
 import { RecoveryPage } from './pages/recovery/recovery.page';
 import { ProfilePageModule } from './pages/profile/profile.module';
 import { ProfilePage } from './pages/profile/profile.page';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RankingPage } from './pages/ranking/ranking.page';
 
  
 @NgModule({
-  declarations: [AppComponent, AboutUsComponent, RulesComponent, ProfilePage],
+  declarations: [AppComponent, AboutUsComponent, RulesComponent, ProfilePage, RankingPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
 		provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
 		provideAuth(() => getAuth()),

@@ -12,6 +12,92 @@
 #teste{
     //background-image: url('fundo.png');
 }
+#rodada{
+    position: absolute;
+    margin-left: 47%;
+    margin-top: 1%;
+}
+
+#baralho{
+    position: absolute;
+    margin-top: 35%;
+    max-width: 150px; 
+    max-height: 100px;
+    margin-left: 90%;
+}
+#vira{
+    position: absolute;
+    margin-top: 20%;
+    max-width: 150px; 
+    max-height: 100px;
+    margin-left: 48%;
+}
+#bcenario{
+    transform: rotate(35deg);
+    position: absolute;
+    margin-top: 25%;
+    max-width: 150px; 
+    max-height: 100px;
+    margin-left: 51%;
+}
+#you{
+    position: absolute;
+    margin-top: 44%;
+    margin-left: 48%;
+}
+
+#bot1{
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 30%;
+}
+#bb1{
+    position: absolute;
+    max-width: 120px; 
+    max-height: 80px;
+    margin-top: 13%;
+    margin-left: 27%;
+}
+#bot2{
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 68%;
+}
+#bb2{
+    position: absolute;
+    max-width: 120px; 
+    max-height: 80px;
+    margin-top: 13%;
+    margin-left: 68%;
+}
+
+#bot3{
+    position: absolute;
+    margin-top: 35%;
+    margin-left: 30%;
+}
+
+#bb3{
+    position: absolute;
+    max-width: 120px; 
+    max-height: 80px;
+    margin-top: 38%;
+    margin-left: 65%;
+}
+
+#bot4{
+    position: absolute;
+    margin-top: 35%;
+    margin-left: 68%;
+}
+
+#bb4{
+    position: absolute;
+    max-width: 120px; 
+    max-height: 80px;
+    margin-top: 38%;
+    margin-left: 31%;
+}
 
 .memory-card.flip {
     transform: rotateY(180deg);

@@ -7,8 +7,25 @@
 
 
   <ion-content id="teste">
-    <ion-label id="vidas">Vidas =</ion-label>
+    <ion-label id="rodada">Rodada : {{rodada}}</ion-label>
+    <ion-label id="vidas">Vidas :</ion-label>
+    <ion-label id="you">Você</ion-label>
+    <ion-label id="bot1">Bot 1</ion-label>
+    <ion-label id="bot2">Bot 2</ion-label>
+    <ion-label id="bot3">Bot 3</ion-label>
+    <ion-label id="bot4">Bot 4</ion-label>
     <img id="carlao" src="assets/table.png">
+    
+    <img id="baralho" (click)="gira()" src={{carta}}>
+    
+    <img id="vira" src="assets/baralho/cardClubs3.png">
+    <img id="bcenario" src="assets/baralho/cardBack_blue2.png">
+
+    <img id="bb1" src="assets/baralho/cardDiamonds6.png">
+    <img id="bb2" src="assets/baralho/cardHeartsA.png">
+    <img id="bb3" src="assets/baralho/cardClubs2.png">
+    <img id="bb4" src="assets/baralho/cardHearts4.png">
+
   </ion-content>
 
 

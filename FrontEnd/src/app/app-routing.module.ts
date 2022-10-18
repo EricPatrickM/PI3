@@ -20,20 +20,22 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
-  {
-    path: 'edit',
-    loadChildren: () => import('./pages/edit/edit.module').then( m => m.EditPageModule)
-  },
+
   {
     path: 'recovery',
     loadChildren: () => import('./pages/recovery/recovery.module').then( m => m.RecoveryPageModule)
-  },  {
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'room',
     loadChildren: () => import('./pages/room/room.module').then( m => m.RoomPageModule)
+  },
+  {
+    path: 'ranking',
+    loadChildren: () => import('./pages/ranking/ranking.module').then( m => m.RankingPageModule)
   },
 
 
