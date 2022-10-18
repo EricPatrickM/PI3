@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>recovery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Email" formControlName="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="(((errorControl.email.touched)||(errorControl.email.dirty))&&errorControl.email.errors)">
+        <span *ngIf="errorControl.email.errors?.required || errorControl.email.error">
+          Email é obrigatório!
+        </span>
+      </ion-item>
+    </ion-list>
+    <ion-button class="btn" expand="block" color="success" type="submit">Enviar Email</ion-button>
+    </form>
+</ion-content>

@@ -8,13 +8,15 @@ import {
   updatePassword
 } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { updateEmail } from 'firebase/auth';
+import { sendPasswordResetEmail, updateEmail } from 'firebase/auth';
+
 
 @Injectable({
 	providedIn: 'root'
 })
 export class AuthService {
-	constructor(private auth: Auth, private database : AngularFirestore) {}
+	
+	constructor( private auth: Auth, private database : AngularFirestore) {}
 
 	async register({email, password, nick}) {
 		try {
@@ -23,13 +25,15 @@ export class AuthService {
         nick : nick, 
         email : email, 
         password : password,
-        victory : 0,
-        hist : 0, 
+		gamesinit : 0,
+        gameswin: 0,
+        papitestotais : 0,
+		palpitesfeitos : 0
       });
 			return us;
 		} catch (e) {
-      console.log(e);
-			return null;
+      		console.log(e);
+			return false;
 		}
 	}
 
@@ -39,6 +43,15 @@ export class AuthService {
 			return user;
 		} catch (e) {
 			return null;
+		}
+	}
+
+	async getinf(){
+		try{
+			const user = await this.auth.currentUser.uid;
+			return user; 
+		}catch(e){
+			return null
 		}
 	}
 
@@ -53,8 +66,13 @@ export class AuthService {
 			return false;
 		});
 	}
-	recoverypassword({email}){
-		return this.recoverypassword(email);
+	async recoverypass({email}) : Promise<boolean>{
+		return sendPasswordResetEmail(this.auth, email).then(() => {
+			return true;
+		}).catch((error) => {
+			console.log(error);
+			return false;
+		});
 	}
 
 	logout() {

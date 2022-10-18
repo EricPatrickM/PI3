@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { modalController } from '@ionic/core';
-import { RuleTester } from 'eslint';
-import { User } from 'src/models/usuario';
+import { User } from 'src/app/models/usuario';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { RulesComponent } from './components/rules/rules.component';
+import { ProfilePage } from './pages/profile/profile.page';
 
 import { AuthService } from './services/auth.service';
+import { UserFirebaseService } from './services/user-firebase.service';
 
 
 @Component({
@@ -21,12 +22,17 @@ export class AppComponent {
   altbotton : boolean = false;
   us : User;
 
-  constructor(public modalCtrl: ModalController, private router : Router, private authService : AuthService) {}
+  constructor(public modalCtrl: ModalController, 
+    private router : Router, 
+    private authService : AuthService, 
+    private rafael : UserFirebaseService) {}
 
   async goToLogin(){
     this.router.navigate(["/login"]);
   }
-
+  async goToHome(){
+    this.router.navigate(["/home"]);
+  }
   goToRegister(){
     this.router.navigate(["/register"]);
   }
@@ -36,8 +42,13 @@ export class AppComponent {
     });
     return await modal.present();
   }
-  gotoUpdate(){
-    console.log("editar perfil")
+  async gotoUpdate(){
+    console.log(this.rafael.getProfile());
+    
+    const modal = await this.modalCtrl.create({
+      component : ProfilePage,
+    });
+    return await modal.present();
   }
   gotoLogOut(){
     const check = this.authService.logout();
