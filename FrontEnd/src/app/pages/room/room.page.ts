@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Phaser from 'phaser';
+import { User } from 'src/app/models/usuario';
+import { ProfilePage } from '../profile/profile.page';
 
 
 @Component({
@@ -9,7 +11,11 @@ import Phaser from 'phaser';
 })
 
 export class RoomPage implements OnInit {
-
+private jogador;
+private rodada : number = 0;
+private us : User;
+private profile : ProfilePage;
+private carta : string = "assets/baralho/cardBack_blue2.png";
 naipes = ['Diamons','Clubs','Hearts','Spades'];
 valores = ['2','3','4','5','6','7','Q','J','K','A'];
 
@@ -23,24 +29,12 @@ valores = ['2','3','4','5','6','7','Q','J','K','A'];
   constructor() { }
 
   ngOnInit() {
-    this.initializePhaser();
+
   }
 
 
-  initializePhaser(){
-    this.config = {
-      type: Phaser.AUTO,
-      width: 400,
-      height: 400,
-      parent:'game',
-      backgroundColor: '#71c5cf',
-      scene: [],
-      scale: {
-        mode: Phaser.Scale.ENVELOP
-      }
-    }
-    
-    this.pashergamer = new Phaser.Game(this.config);
+  gira(){
+    this.carta = "assets/baralho/cardHeartsA.png"; 
   }
 
   aleatorionipe(){
@@ -50,17 +44,25 @@ valores = ['2','3','4','5','6','7','Q','J','K','A'];
 
   aleatoriovalor(){
     var randomNumber = Math.floor(Math.random()*this.valores.length);
-	
-	if (randomNumber < 0)
-	{
-		return this.valores[0]
-	}
-	return this.valores[randomNumber]
+	  if (randomNumber < 0){ 
+		  return this.valores[0]
+	  }
+	  return this.valores[randomNumber]
   }
   
   currentCardName(){
-	return this.getCardName(this.aleatorionipe(), this.aleatoriovalor())
+	  return this.getCardName(this.aleatorionipe(), this.aleatoriovalor())
   }
 
+  game(){
 
+    while(this.rodada !== 8){
+      let vira = this.currentCardName;
+      let i = 0;
+      while(i < this.rodada){
+        let jogador
+      }
+      this.rodada += 1;
+    }
+  }
 }

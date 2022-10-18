@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{user.nick}}</ion-title>
+    <ion-title color="success">Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button slop="end" defaultHref="" (click)="dimiss()" icon="chevron-down-outline"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+    <ion-list>
+      <ion-item>
+        <ion-label> Nick : {{us.nick}}</ion-label>
+      </ion-item>
+  
+
+      <ion-item>
+        <ion-label>Email : {{us.email}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Jogos Iniciados: {{us.gamesinit}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Jogos Vencidos: {{us.gameswin}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Palpites Totais: {{us.palpitestotais}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Palpites Acertados: {{us.palpitesfeitos}}</ion-label>
+      </ion-item>
+    </ion-list>
 
 </ion-content>

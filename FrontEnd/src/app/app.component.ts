@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
@@ -6,9 +6,9 @@ import { User } from 'src/app/models/usuario';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { ProfilePage } from './pages/profile/profile.page';
+import { RankingPage } from './pages/ranking/ranking.page';
 
 import { AuthService } from './services/auth.service';
-import { UserFirebaseService } from './services/user-firebase.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ import { UserFirebaseService } from './services/user-firebase.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   nameb1 : string = "Login";
   nameb2 : string = "Cadastro";
   altbotton : boolean = false;
@@ -25,7 +25,10 @@ export class AppComponent {
   constructor(public modalCtrl: ModalController, 
     private router : Router, 
     private authService : AuthService, 
-    private rafael : UserFirebaseService) {}
+    ) {}
+  ngOnInit() {
+    
+  }
 
   async goToLogin(){
     this.router.navigate(["/login"]);
@@ -43,13 +46,21 @@ export class AppComponent {
     return await modal.present();
   }
   async gotoUpdate(){
-    console.log(this.rafael.getProfile());
+    console.log(this.authService.checkauth());
     
     const modal = await this.modalCtrl.create({
       component : ProfilePage,
     });
     return await modal.present();
   }
+
+  async goToRanking(){
+    const modal = await this.modalCtrl.create({
+      component : RankingPage,
+    });
+    return await modal.present();
+  }
+
   gotoLogOut(){
     const check = this.authService.logout();
     this.isLogin(check);
@@ -57,7 +68,7 @@ export class AppComponent {
 
   isLogin(ver : boolean){
     if(ver){
-      this.nameb1 = "Editar Perfil";
+      this.nameb1 = "Perfil";
       this.nameb2 = "Sair";
       this.altbotton = true;
     }else{

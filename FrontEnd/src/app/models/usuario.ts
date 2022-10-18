@@ -42,5 +42,29 @@ export class User{
       public set password(password : string){
         this._password = password;
       }
+      public get gamesinit() : number{
+        return this._gamesinit;
+      }
+      public set gamesinit(gamesinit : number){
+        this._gamesinit = gamesinit;
+      }
+      public get gameswin() : number{
+        return this._gameswin;
+      }
+      public set gameswin(gameswin : number){
+        this._gameswin = gameswin;
+      }
+      public get papitestotais() : number{
+        return this._papitestotais;
+      }
+      public set papitestotais(papitestotais : number){
+        this._papitestotais = papitestotais;
+      }
+      public get papitesfeitos() : number{
+        return this._palpitesfeitos
+      }
+      public set papitesfeitos(papitesfeitos : number){
+        this._palpitesfeitos = papitesfeitos;
+      }
 
 }
