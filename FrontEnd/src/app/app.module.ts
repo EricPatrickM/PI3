@@ -16,14 +16,15 @@ import { environment }
 from 'src/environments/environment.prod';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { AppRoutingModule } from './app.routing.module';
-import { LoginPage } from './Screens/login/login.page';
+import { AppRoutingModule } from './app-routing.module';
 import { RulesComponent } from './components/rules/rules.component';
+import { RecoveryPage } from './pages/recovery/recovery.page';
+import { ProfilePageModule } from './pages/profile/profile.module';
+import { ProfilePage } from './pages/profile/profile.page';
 
  
-
 @NgModule({
-  declarations: [AppComponent, AboutUsComponent, RulesComponent],
+  declarations: [AppComponent, AboutUsComponent, RulesComponent, ProfilePage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
 		provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
 		provideAuth(() => getAuth()),

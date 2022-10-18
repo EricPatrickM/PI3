@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -8,7 +9,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class RulesComponent implements OnInit {
 
-  constructor(private modal : ModalController) { }
+  constructor( private modal : ModalController) { }
 
   ngOnInit() {}
 

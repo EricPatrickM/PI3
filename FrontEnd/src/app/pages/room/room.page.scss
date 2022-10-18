@@ -1,0 +1,18 @@
+#carlao{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); 
+}
+#vidas{
+    position: absolute;
+    margin-left: 90%;
+    margin-top: 1%;
+}
+#teste{
+    //background-image: url('fundo.png');
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+  }
