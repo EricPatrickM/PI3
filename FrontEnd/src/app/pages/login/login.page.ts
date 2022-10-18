@@ -64,7 +64,7 @@ export class LoginPage implements OnInit {
       this.comp.isLogin(true);
 			this.router.navigateByUrl('/home', { replaceUrl: true });
 		} else {
-			this.presentAlert('Login', 'Por Favor tente novamente!', '');
+			this.presentAlert('Login', 'Erro', 'Por Favor tente novamente!');
 		}
   }
 
