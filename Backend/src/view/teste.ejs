@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="Carta1">
+        CARTA1
+    </button>
+    <button id="Carta2">
+        CARTA2
+    </button>
+    <button id="Carta3">
+        CARTA3
+    </button>
+    <button id="Carta4">
+        CARTA4
+    </button>
+
+    <script>
+        document.getElementById('Carta1').addEventListener('click', ()=>{
+            console.log('Jogou carta 1')
+            const room = 1//SalaQueOCaraTa
+            const number = 1
+            const suite = 1
+            console.log(event.target.value)
+            const data = {
+                room,
+                number,
+                suite,
+            }
+            console.log(data)
+            socket.emit("sendCardSelect", data)
+        });
+        
+        document.getElementById('Carta2').addEventListener('click', ()=>{
+            console.log('Jogou carta 2')
+        });
+        document.getElementById('Carta3').addEventListener('click', ()=>{
+            console.log('Jogou carta 3')
+        });
+        document.getElementById('Carta4').addEventListener('click', ()=>{
+            console.log('Jogou carta 4')
+        });
+    </script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/Assets/websocket"></script>
+</body>
+</html>

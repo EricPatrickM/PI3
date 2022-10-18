@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Phaser from 'phaser';
+
 import { User } from 'src/app/models/usuario';
 import { ProfilePage } from '../profile/profile.page';
 
@@ -22,9 +22,6 @@ valores = ['2','3','4','5','6','7','Q','J','K','A'];
  getCardName(naipes, valores) {
   return 'card${naipes}{valores}$';
 }
-
-  pashergamer : Phaser.Game;
-  config : Phaser.Types.Core.GameConfig;
   
   constructor() { }
 
